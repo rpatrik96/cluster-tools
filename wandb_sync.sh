@@ -1,4 +1,5 @@
-#!/bin/bash 
+#!/bin/bash
+./export_root_dir.sh
 PARTITION=gpu-2080ti-preemptable
 #FLAGS= 
-PYTHONPATH=. srun --time=600 --job-name="$JOB_NAME" --partition=$PARTITION --cpus-per-task=4 --mem=8G --gpus=1 -- /mnt/qb/work/bethge/preizinger/lti-ica//scripts/run_singularity_server.sh wandb sync --sync-all /mnt/qb/work/bethge/preizinger/lti-ica/wandb
+PYTHONPATH=. srun --time=600 --job-name="$JOB_NAME" --partition=$PARTITION --cpus-per-task=4 --mem=8G --gpus=1 -- $ROOT_DIR/scripts/run_singularity_server.sh wandb sync --sync-all $ROOT_DIR/wandb
